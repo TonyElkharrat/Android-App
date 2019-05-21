@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Max</string>
+    <string name="Max_Presentation">Bonjour , Je suis Max . comment puis-je vous  aider ?</string>
+    <string name="text_of_documentation">"          Application Powered By Tony Elkharrat.             Documentation and Example of the Max App.          Version 1.0.                   List of The Command :               Open Maps : Max demand a name Of a  city . Ex :Paris / Los Angeles            Open Browser : Max demand the name of a website Facebbok / Instagram            Open Camera : Max open the default camera of the phone             Add a Contact : Max demand the name of the contact and his phone John,0432344            Send a message : Max demand the name of the contact and the message to send :         John ,  Hello John How are you Today             Search : Max search what do you want             Make an Alarm : Max demand the start time and the end time 7,8             Make an reminder : Max demand the Title ,Location , start time and the end time feed the cat , Paris,7,8             יישום מופעל על ידי טוני אלקראט תיעוד ודוגמה של היישום המקסימלי.          גרסה 1.0.                   רשימת הפקודה:           מפות פתוחות: מקס דורש שם של עיר. דוגמה: פריז / לוס אנג'לס          דפדפן פתוח: מקס דורשים את השם של אתר Facebbok Instagram          מצלמה פתוחה: מקס פותח את מצלמת ברירת המחדל של הטלפון          הוסף איש קשר: מקס דורש את שם איש הקשר ואת הטלפון שלו ג'ון, 0432344          שליחת הודעה: מקס דורש את שם איש הקשר ואת ההודעה לשליחה:          ג'ון, שלום ג 'ון איך אתה היום          חיפוש: חיפוש מקסימלי מה אתה רוצה          ביצוע התראה: מקס דורש את זמן ההתחלה ואת זמן הסיום 7, 8          בצע תזכורת: מקס דורש את הכותרת, מיקום, זמן התחלה וסיום הזמן להאכיל את החתול, פריז, 7, 8                      Application développée par Tony Elkharrat.               Documentation et exemple de l'application Max.            Version 1.0.                     Liste des commande:             n Ouvre Maps: Max demande le nom d une ville. Ex: Paris / Los Angeles              Ouvre Le Navigateur : Max demande le nom d’un site Web Facebbok / Instagram              Ouvrir l appareil photo: ouvre l appareil photo par défaut du téléphone              Ajouter un contact: Max demande le nom du contact et son téléphone John, 0432344              Envoyer un message: Max demande le nom du contact et le message à envoyer:          John, Bonjour John, comment vas-tu aujourd'hui              Recherche: Max recherche tout ce que vous voulez              Faire une alarme: Max demande  l heure de début et l heure de fin 7, 8              Faites un rappel: Max demande le titre, le lieu, l heure de début et l heure de fin nourrir le chat, Paris, 7, 8            "</string>
+    <string name="Contact_Request">D\'accord . Quel est le nom du contact</string>
+    <string name="Hello">Bonjour</string>
+    <string name="MoreThan">Bien plus qu\'un assistant</string>
+    <string name="Max_name">Max</string>
+    <string name="Begin_btn">Commencez</string>
+    <string name="Name_Of_the_contact">Nom du contact</string>
+    <string name="Telephone">Telephone</string>
+    <string name="Telephone_Request">Tré Bien ,Quel est le numero de telephone</string>
+    <string name="City_Exception">Veuillez me dire le nom d\'une ville</string>
+    <string name="Message_Request">Tré Bien, Quel est votre message</string>
+    <string name="Minutes_Request">Dites les minutes</string>
+    <string name="Number_Exception">Merci de dire un chiffre</string>
+    <string name="Start_time_request">Dites l\'heure de commencement</string>
+    <string name="End_Time_request">Dites,l\'heure de fin</string>
+    <string name="Location_Request">Super, Dites le lieu</string>
+    <string name="Max_Command">Ouvre l\'appareil photo , Passe un appel , Envoi un message, Ouvre la carte , Ouvre le navigateur , Ajoute un contact,Recherche,Met un rappel , Met une alarme</string>
+    <string name="Alarm_Request">Bien , Pour creer une alarme j\'ai besoin de l\'heure et des minutes</string>
+    <string name="Website_Request">D\'accord , quelle site internet ?</string>
+    <string name="City_request">Tré Bien , Quelle ville voulez vous voir ?</string>
+    <string name="Reminder_explain">Ok , Pour l\'événement , j\'ai besoin du titre du rapel , le lieu , l\'heure du debut et l\'heure de fin . Quelle est le titre ?</string>
+    <string name="Error_commans">je suis désolé , je n\'ai pas compris .Peux tu parler plus clairement ?</string>
+    <string name="Welcome_DialogView">Bienvenue dans l\'application Max !</string>
+    <string name="Welcome_text">Pour une utilisation complete de l\'application Max , veuillez lire la documentation sur le bouton d’aide.(Cette application a été développée par Tony Elkharrat)</string>
+    <string name="Permission">Une permission est requise . Allez dans les parametres pour activer la permission.</string>
+    <string name="Contact_Not_found">Contact non trouve !</string>
+    <string name="Press_Button">Appuyez pour une commande</string>
+</resources>

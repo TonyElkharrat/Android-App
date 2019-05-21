@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:background="@color/BlueFonce"
+        android:id="@+id/highBackgroundID"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/beige"
+        android:layout_below="@id/highBackgroundID"
+        />
+    <ImageButton
+        android:id="@+id/PermissionID"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginStart="30dp"
+        android:background="@drawable/background_pressed_selector"
+        android:src="@drawable/ic_settings_black_24dp"
+        android:visibility="invisible"
+
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:id="@+id/NameOfTheContactId"
+        android:textAllCaps="true"
+        android:textColor="#fff"
+        android:textSize="25sp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:id="@+id/telephoneOfTheContactId"
+        android:layout_below="@id/NameOfTheContactId"
+        android:textColor="#fff"
+        android:textSize="20sp"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="500dp"
+        android:weightSum="5"
+        android:padding="5dp">
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:hint="     Chat"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/chat_selector"
+        android:textSize="15sp"
+        android:id="@+id/chatID"
+        android:layout_weight="5"
+        android:layout_marginStart="10dp"/>
+
+        <ImageButton
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/background_pressed_selector"
+            android:src="@drawable/ic_send_black_24dp"
+            android:id="@+id/sendMessageD"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"/>
+
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>
+
+

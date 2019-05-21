@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/grey">
+
+    </TextView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp">
+        <ImageView
+
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_person_black_24dp"
+            android:layout_weight="1"/>
+        <EditText
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:hint="@string/Name_Of_the_contact"
+            android:id="@+id/NameOfTheNewContact"
+            android:textSize="18sp"
+            android:textColor="#000"
+            android:layout_weight="1">
+
+        </EditText>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp">
+        <ImageView
+
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_call_black_24dp"
+            android:layout_weight="1"/>
+        <EditText
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:hint="@string/Telephone"
+            android:textSize="18sp"
+            android:textColor="#000"
+            android:layout_weight="2"
+            android:id="@+id/TelephoneOfTheNewContactID">
+
+        </EditText>
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/validationNewContactID"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="250dp"
+        android:layout_marginTop="300dp"
+        android:background="@drawable/background_pressed_selector"
+        android:src="@drawable/ic_check_black_24dp" />
+    </LinearLayout>

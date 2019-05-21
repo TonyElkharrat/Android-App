@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/gradient">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20dp"
+    android:weightSum="3">
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/us_flag"
+        android:id="@+id/us_flag"
+        android:layout_weight="1"
+
+        />
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/il_flag"
+        android:id="@+id/il_flag"
+        android:layout_toEndOf="@id/fr_flag"
+        android:layout_weight="1"
+
+        />
+    <ImageView
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:src="@drawable/fr_flag"
+        android:id="@+id/fr_flag"
+        android:layout_toEndOf="@id/us_flag"
+        android:layout_weight="1"
+
+        />
+
+</LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Max_name"
+        android:fontFamily="serif-monospace"
+        android:textColor="#ffff"
+        android:layout_marginTop="60dp"
+        android:textSize="40sp"
+        android:gravity="center"
+        android:id="@+id/Cecile_Logo"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/MoreThan"
+        android:fontFamily="serif-monospace"
+        android:textStyle="italic"
+        android:textSize="25sp"
+        android:layout_below="@+id/Cecile_Logo"
+        android:id="@+id/Subtitles"
+        android:gravity="center"
+        android:textColor="#ffff"
+        />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Subtitles"
+        android:id="@+id/imageOfLogo"
+        android:src="@drawable/robot"
+        android:visibility="visible"
+        />
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/HelpButtonID"
+        android:text="@string/Begin_btn"
+        android:id="@+id/Begin_ButtonID"
+        android:background="@drawable/background_selector"
+        android:textColor="#fff"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="70dp"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_help_black_24dp"
+       android:layout_centerInParent="true"
+        android:id="@+id/HelpButtonID"
+        />
+
+</RelativeLayout>
