@@ -1,7 +1,11 @@
 package com.example.max;
 
+import android.app.SearchManager;
+import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
 import android.provider.ContactsContract;
@@ -32,9 +36,8 @@ public class MainActivity extends AppCompatActivity {
         ImageView helpButton = findViewById(R.id.HelpButtonID);
         helpButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
-                Intent documentationIntent = new Intent(MainActivity.this,DocumentationActivity.class);
+            public void onClick(View v) {
+                Intent documentationIntent = new Intent(MainActivity.this, DocumentationActivity.class);
                 startActivity(documentationIntent);
             }
         });
@@ -42,14 +45,13 @@ public class MainActivity extends AppCompatActivity {
         beginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent homeActivityIntent = new Intent(MainActivity.this,HomeActivity.class);
+                Intent homeActivityIntent = new Intent(MainActivity.this, HomeActivity.class);
                 startActivity(homeActivityIntent);
             }
         });
     }
 
-    public void ShowAlertDialog()
-    {
+    public void ShowAlertDialog() {
         new AlertDialog.Builder(MainActivity.this)
                 .setTitle(getResources().getString(R.string.Welcome_DialogView))
                 .setMessage(getResources().getString(R.string.Welcome_text))
@@ -66,6 +68,9 @@ public class MainActivity extends AppCompatActivity {
                 .setIcon(android.R.drawable.ic_dialog_info)
                 .show();
     }
+
+
+
 
 
 }

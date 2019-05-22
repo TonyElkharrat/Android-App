@@ -31,5 +31,7 @@
     <string name="Telephone_Request">בסדר , מה המספר טלפון</string>
     <string name="Website_Request">" ?אוקיי , איזה אתר תרצה ללכת"</string>
     <string name="Welcome_DialogView">ברוכים הבאים לאפליקצית מקס!</string>
-    <string name="Welcome_text">כדי להשתמש באפליקצית מקס בצורה הכי נכונה נא לקראו את ההוראות הפעלה (האפליקציה פותחה על ידי טוני אלקראט)</string>
+    <string name="Welcome_text">כדי להשתמש באפליקצית מקס בצורה הכי נכונה נא לקראו את ההוראות הפעלה.תוודו שהווליום גבוה כדי לשמוע את מקס (האפליקציה פותחה על ידי טוני אלקראט)</string>
+    <string name="Artist_Request">מעולה ! מה השם של האומן?</string>
+    <string name="Song_Request">ומה השם של המוזיקה שלו?</string>
 </resources>

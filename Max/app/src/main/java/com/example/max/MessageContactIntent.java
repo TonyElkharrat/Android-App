@@ -88,7 +88,6 @@ public   class MessageContactIntent extends CommunicationIntent
         {
             if(grantResults[0]== PackageManager.PERMISSION_GRANTED)
             {
-                String s  = GetContactPhoneNumber(m_NameOfTheContact, this);
                 phoneOfTheContact_TV.setText( GetContactPhoneNumber(m_NameOfTheContact, this));
                 nameOfTheContact_TV.setText(m_NameOfTheContact);
                 textForTheContact_ET.setText("           "+m_MessageForTheContact);

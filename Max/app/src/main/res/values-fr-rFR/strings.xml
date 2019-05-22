@@ -25,8 +25,10 @@
     <string name="Reminder_explain">Ok , Pour l\'événement , j\'ai besoin du titre du rapel , le lieu , l\'heure du debut et l\'heure de fin . Quelle est le titre ?</string>
     <string name="Error_commans">je suis désolé , je n\'ai pas compris .Peux tu parler plus clairement ?</string>
     <string name="Welcome_DialogView">Bienvenue dans l\'application Max !</string>
-    <string name="Welcome_text">Pour une utilisation complete de l\'application Max , veuillez lire la documentation sur le bouton d’aide.(Cette application a été développée par Tony Elkharrat)</string>
+    <string name="Welcome_text">Pour une utilisation complete de l\'application Max , veuillez lire la documentation sur le bouton d’aide.Verifiez que le volume est haut pour ecouter Max.(Cette application a été développée par Tony Elkharrat)</string>
     <string name="Permission">Une permission est requise . Allez dans les parametres pour activer la permission.</string>
     <string name="Contact_Not_found">Contact non trouve !</string>
     <string name="Press_Button">Appuyez pour une commande</string>
+    <string name="Artist_Request">Super ! quel est le nom de l\'artiste?</string>
+    <string name="Song_Request">Et quelle est le nom de sa chanson ?</string>
 </resources>

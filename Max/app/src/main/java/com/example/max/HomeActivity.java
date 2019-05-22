@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.location.Geocoder;
 import android.media.AudioManager;
@@ -24,6 +25,7 @@ import android.widget.TextView;
 import com.varunest.sparkbutton.SparkButton;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
@@ -34,32 +36,67 @@ public class HomeActivity extends Activity implements TextToSpeech.OnInitListene
 
 
     private SparkButton buttonOfVocalAssistant;
-    private final int CAMERA_REQUEST=2, SPEECH_REQUEST =3,WEBSITE_ADRESS_REQUEST=4,CITY_REQUEST=5,CONTACTS_REQUEST=6,Location_REQUEST=7,HOUR_BEGIN=8,HOUR_END=10,
+    private final int CAMERA_REQUEST=2, SPEECH_REQUEST =3,WEBSITE_ADRESS_REQUEST=4,CITY_REQUEST=5,CONTACTS_REQUEST=6,Location_REQUEST=7,
     Build_REQUEST=9,ALARM_REQUEST=15,ALARM_MINUTES=16, ERROR_REQUEST=19,MESSAGE_TO_SEND_REQUEST =13,MESSAGE_OF_THE_CONTACT=14,NAME_OF_NEW_CONTACT_REQUEST=17,
-      PHONE_NUMBER_OF_THE_NEW_CONTACT=18,NOTE_REQUEST=20,BODY_OF_NOTE_REQUEST=21;;
+      PHONE_NUMBER_OF_THE_NEW_CONTACT=18,NOTE_REQUEST=20,BODY_OF_NOTE_REQUEST=21,SONG_REQUEST=34,ARTIST_REQUEST=35,HOUR_END=32,HOUR_BEGIN=60;
     private int m_MinutesOfTheAlarm,m_HoursOfTheAlarm,hour_begin,hour_end;
     private static int  count =0;
-    private String Title,Location,m_NameOfTheContact,m_MessageOfTheContact,m_TitleOfTheNote=null,m_BodyOfTheNote=null,m_NameOfTheNewContact=null,m_PhoneNumberOfTheNewContact=null;;
+    private String Location,m_NameOfTheContact,m_MessageOfTheContact,m_TitleOfTheNote=null,m_BodyOfTheNote=null,m_NameOfTheNewContact=null,m_PhoneNumberOfTheNewContact=null;;
     private ImageView resultImageView;
+
     private TextToSpeech textToSpeech;
     private boolean isAcall =false;
     private  String [] temp = new String[2];
-    private String languageOs;
+    private String languageOs,Title,m_NameOfTheArtist,m_Song;
     private TextView sttHebrew;
+    Actions actions ;
 
     @Override
     protected void onCreate( Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_activity);
+        buttonOfVocalAssistant = findViewById(R.id.spark_button);
+        textToSpeech = new TextToSpeech(this,this);
+        buttonOfVocalAssistant.setInactiveImage(R.drawable.voicerecognitioninactive);
+
+        buttonOfVocalAssistant.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+
+                buttonOfVocalAssistant.setInactiveImage(R.drawable.voicerecognitionactive);
+                buttonOfVocalAssistant.playAnimation();
+                new Thread()
+                {
+                    @Override
+                    public void run() {
+                        super.run();
+                        try{
+
+                            Thread.sleep(700);
+                            Intent intentRecognizeSpeech = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+                            intentRecognizeSpeech.putExtra(RecognizerIntent.EXTRA_MAX_RESULTS,5);
+                            intentRecognizeSpeech.putExtra(RecognizerIntent.EXTRA_PROMPT,getResources().getString(R.string.Max_Command));
+                            startActivityForResult(intentRecognizeSpeech,SPEECH_REQUEST);
+                        }catch (InterruptedException e)
+                        {
+
+                        }
+                    }
+                }.start();
+
+            }
+
+        });
+
+        actions = new Actions(this);
+        final AudioManager audioManager = (AudioManager) getApplicationContext().getSystemService(Context.AUDIO_SERVICE);
         resultImageView = findViewById(R.id.result_pic);
         ImageView helpbtn = findViewById(R.id.HelpButtonHomeID);
         sttHebrew = findViewById(R.id.HebrewSttID);
         ImageButton buttonUp = findViewById(R.id.upbtn);
         ImageButton buttonDown = findViewById(R.id.downbtn);
-
-        final AudioManager audioManager = (AudioManager) getApplicationContext().getSystemService(Context.AUDIO_SERVICE);
-
         buttonUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
@@ -85,40 +122,6 @@ public class HomeActivity extends Activity implements TextToSpeech.OnInitListene
             }
         });
 
-        buttonOfVocalAssistant = findViewById(R.id.spark_button);
-        textToSpeech = new TextToSpeech(this,this);
-
-        buttonOfVocalAssistant.setInactiveImage(R.drawable.voicerecognitioninactive);
-
-
-        buttonOfVocalAssistant.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v)
-            {
-                buttonOfVocalAssistant.setInactiveImage(R.drawable.voicerecognitionactive);
-                buttonOfVocalAssistant.playAnimation();
-                new Thread()
-                {
-                    @Override
-                    public void run() {
-                        super.run();
-                        try{
-
-                            Thread.sleep(700);
-                            Intent intentRecognizeSpeech = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-                            intentRecognizeSpeech.putExtra(RecognizerIntent.EXTRA_MAX_RESULTS,5);
-                            intentRecognizeSpeech.putExtra(RecognizerIntent.EXTRA_PROMPT,getResources().getString(R.string.Max_Command));
-                            startActivityForResult(intentRecognizeSpeech,SPEECH_REQUEST);
-                        }catch (InterruptedException e)
-                        {
-
-                        }
-                    }
-                }.start();
-
-            }
-
-        });
 
     }
 
@@ -270,7 +273,7 @@ public class HomeActivity extends Activity implements TextToSpeech.OnInitListene
         {
             try {
                 m_MinutesOfTheAlarm = Integer.parseInt(results.get(0));
-                addAlarm("Alarm By Max", m_HoursOfTheAlarm, m_MinutesOfTheAlarm);
+                actions.addAlarm("Alarm By Max", m_HoursOfTheAlarm, m_MinutesOfTheAlarm);
             }
             catch (Exception e )
             {
@@ -296,7 +299,7 @@ public class HomeActivity extends Activity implements TextToSpeech.OnInitListene
         {
             try {
                 hour_end = Integer.parseInt(results.get(0));
-                addEvent(Title, Location, hour_begin, hour_end);
+                actions.addEvent(Title, Location, hour_begin, hour_end);
             }
               catch (Exception e )
             {
@@ -309,9 +312,18 @@ public class HomeActivity extends Activity implements TextToSpeech.OnInitListene
             Title= results.get(0);
             GuiLangage(getResources().getString(R.string.Location_Request), 2500, Location_REQUEST);
         }
+        else if(requestCode == ARTIST_REQUEST&& resultCode == RESULT_OK)
+        {
+            m_NameOfTheArtist =results.get(0);
+            GuiLangage(getResources().getString(R.string.Song_Request), 2500, SONG_REQUEST);
+        }
+        else if(requestCode == SONG_REQUEST&& resultCode == RESULT_OK)
+        {
+            m_Song= results.get(0);
+            actions.PlaySong(m_Song,m_NameOfTheArtist);
+        }
          }
         }
-
 
     public void TextToSpeechCommand (String i_MaxSpeach, int i_timeForSleep,int i_RequestCode)
     {
@@ -331,41 +343,8 @@ public class HomeActivity extends Activity implements TextToSpeech.OnInitListene
         }
     }
 
-    public void addAlarm(String message, int hour, int minutes) {
-        Intent intent = new Intent(AlarmClock.ACTION_SET_ALARM)
-                .putExtra(AlarmClock.EXTRA_MESSAGE, message)
-                .putExtra(AlarmClock.EXTRA_HOUR, hour)
-                .putExtra(AlarmClock.EXTRA_MINUTES, minutes);
-        if (intent.resolveActivity(getPackageManager()) != null) {
-            startActivity(intent);
-        }
-    }
-
-    public void addSearchWeb(String query) {
-        Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
-        intent.putExtra(SearchManager.QUERY, query);
-        if (intent.resolveActivity(getPackageManager()) != null) {
-            startActivity(intent);
-        }
-    }
-
-    public void addEvent(String title, String location, long begin, long end)
-    {
-        Intent intent = new Intent(Intent.ACTION_INSERT)
-                .setData(CalendarContract.Events.CONTENT_URI)
-                .putExtra(CalendarContract.Events.TITLE, title)
-                .putExtra(CalendarContract.Events.EVENT_LOCATION, location)
-                .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, begin)
-                .putExtra(CalendarContract.EXTRA_EVENT_END_TIME, end);
-        if (intent.resolveActivity(getPackageManager()) != null)
-        {
-            startActivity(intent);
-        }
-    }
-
     public void CheckSpeechRecognition(ArrayList<String> results )
     {
-
         for(String result: results)
         {
             if (result.contains("camera") ||result.contains("מצלמה")||result.contains("appareil")||result.contains("photo") )
@@ -375,6 +354,12 @@ public class HomeActivity extends Activity implements TextToSpeech.OnInitListene
                 break;
             }
 
+            else if (result.contains("event")|| result.contains("événement")|| result.contains("אירוע")||result.contains("לוח שנה"))
+            {
+
+                GuiLangage(getResources().getString(R.string.Reminder_explain), 8000, Build_REQUEST);
+                break;
+            }
 
             else if (result.contains("alarm")||result.contains("שעון")||result.contains("מעורר")||result.contains("Réveil"))
             {
@@ -417,10 +402,10 @@ public class HomeActivity extends Activity implements TextToSpeech.OnInitListene
                 break;
             }
 
-            else if (result.contains("event")|| result.contains("événement")|| result.contains("אירוע")||result.contains("לוח שנה"))
+            else if (result.contains("music")|| result.contains("musique")|| result.contains("מוזיקה")||result.contains("play")||result.contains("joue")||result.contains("נגן"))
             {
 
-                GuiLangage(getResources().getString(R.string.Reminder_explain), 8000, Build_REQUEST);
+                GuiLangage(getResources().getString(R.string.Artist_Request), 3000, ARTIST_REQUEST);
                 break;
             }
             else if(result.contains("search")||result.contains("cherche")||result.contains("חפש"))
@@ -430,7 +415,7 @@ public class HomeActivity extends Activity implements TextToSpeech.OnInitListene
                  t=  t.replace("cherche","");
                  t=  t.replace("חפש","");
 
-                addSearchWeb(t);
+                actions.addSearchWeb(t);
             }
 
             else
@@ -478,5 +463,6 @@ public class HomeActivity extends Activity implements TextToSpeech.OnInitListene
 
  }
     }
+
 
 
