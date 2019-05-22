@@ -31,4 +31,5 @@
     <string name="Press_Button">Appuyez pour une commande</string>
     <string name="Artist_Request">Super ! quel est le nom de l\'artiste?</string>
     <string name="Song_Request">Et quelle est le nom de sa chanson ?</string>
+    <string name="Volume_Up">SOYEZ SUR D\' AVOIR LE VOLUME HAUT</string>
 </resources>

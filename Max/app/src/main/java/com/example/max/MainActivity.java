@@ -1,26 +1,18 @@
 package com.example.max;
 
-import android.app.SearchManager;
-import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.Cursor;
-import android.net.Uri;
-import android.os.Build;
-import android.os.Handler;
-import android.provider.ContactsContract;
-import android.provider.MediaStore;
-import android.speech.RecognizerIntent;
-import android.speech.tts.TextToSpeech;
-import android.speech.tts.Voice;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,6 +26,22 @@ public class MainActivity extends AppCompatActivity {
         ShowAlertDialog();
         Button beginButton = findViewById(R.id.Begin_ButtonID);
         ImageView helpButton = findViewById(R.id.HelpButtonID);
+
+        LayoutInflater inflater = getLayoutInflater();
+        View layout = inflater.inflate(R.layout.toast_layout,
+                (ViewGroup) findViewById(R.id.toast_layout_root));
+
+        ImageView image = (ImageView) layout.findViewById(R.id.image);
+        image.setImageResource(R.drawable.green_volume);
+        TextView text = (TextView) layout.findViewById(R.id.text);
+        text.setText(getString(R.string.Volume_Up));
+
+        Toast toast = new Toast(getApplicationContext());
+        toast.setGravity(Gravity.BOTTOM, 0, 0);
+        toast.setDuration(Toast.LENGTH_LONG);
+        toast.setView(layout);
+        toast.show();
+
         helpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void ShowAlertDialog() {
-        new AlertDialog.Builder(MainActivity.this)
+        new AlertDialog.Builder(MainActivity.this, R.style.MyDialogTheme)
                 .setTitle(getResources().getString(R.string.Welcome_DialogView))
                 .setMessage(getResources().getString(R.string.Welcome_text))
 

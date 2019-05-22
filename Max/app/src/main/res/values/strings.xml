@@ -68,4 +68,5 @@
     <string name="Press_Button">Press for command</string>
     <string name="Artist_Request">Let\'s go ! What the name of the Artist?</string>
     <string name="Song_Request">And what is the name of his song ?</string>
+    <string name="Volume_Up">MAKE SURE YOU HAVE VOLUME UP</string>
 </resources>

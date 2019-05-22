@@ -34,4 +34,5 @@
     <string name="Welcome_text">כדי להשתמש באפליקצית מקס בצורה הכי נכונה נא לקראו את ההוראות הפעלה.תוודו שהווליום גבוה כדי לשמוע את מקס (האפליקציה פותחה על ידי טוני אלקראט)</string>
     <string name="Artist_Request">מעולה ! מה השם של האומן?</string>
     <string name="Song_Request">ומה השם של המוזיקה שלו?</string>
+    <string name="Volume_Up">שלום לך !</string>
 </resources>
