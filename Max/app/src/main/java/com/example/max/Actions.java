@@ -34,7 +34,7 @@ public class Actions
             m_context.startActivity(intent);
         }
     }
-//
+
     public void addEvent(String title, String location, long begin, long end)
     {
         Intent intent = new Intent(Intent.ACTION_INSERT)

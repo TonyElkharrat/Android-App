@@ -15,9 +15,6 @@ public  class CommunicationIntent extends Activity
      protected String m_phoneNumberOfTheContact=null;
      protected ImageButton m_settingsButton;
 
-
-
-
      public   String GetContactPhoneNumber (String i_nameOfTheContact, Context i_context)
      {
 

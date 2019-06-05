@@ -325,21 +325,33 @@ public class HomeActivity extends Activity implements TextToSpeech.OnInitListene
          }
         }
 
-    public void TextToSpeechCommand (String i_MaxSpeach, int i_timeForSleep,int i_RequestCode)
+    public void TextToSpeechCommand (String i_MaxSpeach, final int i_timeForSleep, final int i_RequestCode)
     {
         if(Build.VERSION.SDK_INT>=21) {
             textToSpeech.speak(i_MaxSpeach, TextToSpeech.QUEUE_FLUSH, null, null);
-            try {
-                Thread.sleep(i_timeForSleep);
-            }
-            catch(InterruptedException ex)
-            {
 
-            }
-            Intent intentRecognizeSpeech = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-            intentRecognizeSpeech.putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 5);
-            intentRecognizeSpeech.putExtra(RecognizerIntent.EXTRA_PROMPT, getResources().getString(R.string.Max_Command));
-            startActivityForResult(intentRecognizeSpeech, i_RequestCode);
+            new Thread() {
+                @Override
+                public void run() {
+                    super.run();
+                    try {
+                        Thread.sleep(i_timeForSleep);
+                    } catch (
+                            InterruptedException ex) {
+
+                    }
+
+                    Intent intentRecognizeSpeech = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+                    intentRecognizeSpeech.putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 5);
+                    intentRecognizeSpeech.putExtra(RecognizerIntent.EXTRA_PROMPT,
+
+                            getResources().
+
+                                    getString(R.string.Max_Command));
+
+                    startActivityForResult(intentRecognizeSpeech, i_RequestCode);
+                }
+            }.start();
         }
     }
 

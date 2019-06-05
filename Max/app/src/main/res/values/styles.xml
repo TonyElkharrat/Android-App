@@ -11,6 +11,7 @@
         <item name="android:background">@color/blue</item>
         <item name="android:textColor">#ffff</item>
         <item name="android:textColorPrimary">#ffff</item>
+        <item name="android:windowBackground">@drawable/background_send_pressed_shape</item>
 
     </style>
 </resources>
