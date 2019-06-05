@@ -135,7 +135,7 @@ public class HomeActivity extends Activity implements TextToSpeech.OnInitListene
         if (Build.VERSION.SDK_INT >= 21)
         {
 
-
+//
             if(Locale.getDefault().getLanguage()=="fr" || Locale.getDefault().getCountry()=="FR")
             {
                 Voice v = new Voice("fr-fr-x-frc-local", new Locale("fr", "FR"), 500, 400, true, a);
